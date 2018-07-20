@@ -85,6 +85,7 @@
   },
   "variables": {
     "hostingPlanName": "[concat('Xamarin-Azure-Demo-Service-Plan', uniqueString(resourceGroup().id))]",
+    "emotionServiceName": "[concat('Xamarin-Azure-Demo-Service-Emotion', uniqueString(resourceGroup().id))]",
     "sqlServerName": "[concat('xamarin-azure-demo-service-sql', uniqueString(resourceGroup().id))]",
     "mobileSiteName": "[concat('Xamarin-Azure-Demo-Service-Mobile', uniqueString(resourceGroup().id))]",
     "diagnosticsName": "[concat('Xamarin-Azure-Demo-Service-Diagnostics', uniqueString(resourceGroup().id))]",

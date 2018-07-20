@@ -85,7 +85,6 @@
 	},
 	"variables": {
 		"hostingPlanName": "[concat('Xamarin-Azure-Demo-Service-Plan', uniqueString(resourceGroup().id))]",
-		"faceServiceName": "[concat('Xamarin-Azure-Demo-Service-Face', uniqueString(resourceGroup().id))]",
 		"sqlServerName": "[concat('xamarin-azure-demo-service-sql', uniqueString(resourceGroup().id))]",
 		"mobileSiteName": "[concat('Xamarin-Azure-Demo-Service-Mobile', uniqueString(resourceGroup().id))]",
 		"diagnosticsName": "[concat('Xamarin-Azure-Demo-Service-Diagnostics', uniqueString(resourceGroup().id))]",
@@ -94,19 +93,6 @@
 		"storageAccountName": "[concat('xamarindemo', uniqueString(resourceGroup().id))]"
 	},
 	"resources": [
-		{
-			"name": "[variables('faceServiceName')]",
-			"type": "Microsoft.CognitiveServices/accounts",
-			"sku": {
-				"name": "S0"
-			},
-			"kind": "Face",
-			"apiVersion": "2017-04-18",
-			"location": "[resourceGroup().location]",
-			"properties": {
-				"endpoint": "Endpoint: https://westcentralus.api.cognitive.microsoft.com/face/v1.0"
-			}
-		},
 		{
 			"type": "Microsoft.Sql/servers",
 			"apiVersion": "2014-04-01-preview",

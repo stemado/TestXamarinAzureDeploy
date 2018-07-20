@@ -1,4 +1,22 @@
-﻿{
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @stemado Sign out
+0
+0 0 stemado/TestXamarinAzureDeploy
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+TestXamarinAzureDeploy/azuredeploy.json
+fb0f18a  20 minutes ago
+@stemado stemado Update azuredeploy.json
+@stemado @sescalada
+      
+239 lines (238 sloc)  7.88 KB
+{
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
@@ -92,6 +110,20 @@
     "notificationHubName": "[concat('Xamarin-Azure-Demo-Service-Hub', uniqueString(resourceGroup().id))]",
     "storageAccountName": "[concat('xamarindemo', uniqueString(resourceGroup().id))]"
   },
+  "resources": [
+    {
+      "name": "[variables('emotionServiceName')]",
+      "type": "Microsoft.CognitiveServices/accounts",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "Emotion",
+      "apiVersion": "2016-02-01-preview",
+      "location": "westus",
+      "properties": {
+        "endpoint": "https://api.projectoxford.ai/emotion/v1.0"
+      }
+    },
     {
       "type": "Microsoft.Sql/servers",
       "apiVersion": "2014-04-01-preview",
@@ -146,23 +178,6 @@
         "name": "[variables('hostingPlanName')]"
       }
     },
-
- "resources": [	
-   {	
-     "name": "[variables('emotionServiceName')]",	
-     "type": "Microsoft.CognitiveServices/accounts",	
-     "sku": 
-     {	
-       "name": "S0"	
-     },	
-      "kind": "Emotion",	
-      "apiVersion": "2016-02-01-preview",	
-      "location": "westus",	
-      "properties": 
-     {	
-        "endpoint": "https://api.projectoxford.ai/emotion/v1.0"	
-      }	
-  },
     {
       "type": "Microsoft.Web/sites",
       "kind": "mobileapp",

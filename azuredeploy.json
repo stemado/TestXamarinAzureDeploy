@@ -146,6 +146,23 @@
         "name": "[variables('hostingPlanName')]"
       }
     },
+
+ "resources": [	
+   {	
+     "name": "[variables('emotionServiceName')]",	
+     "type": "Microsoft.CognitiveServices/accounts",	
+     "sku": 
+     {	
+       "name": "S0"	
+     },	
+      "kind": "Emotion",	
+      "apiVersion": "2016-02-01-preview",	
+      "location": "westus",	
+      "properties": 
+     {	
+        "endpoint": "https://api.projectoxford.ai/emotion/v1.0"	
+      }	
+  },
     {
       "type": "Microsoft.Web/sites",
       "kind": "mobileapp",

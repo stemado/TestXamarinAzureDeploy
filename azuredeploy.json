@@ -92,20 +92,6 @@
     "notificationHubName": "[concat('Xamarin-Azure-Demo-Service-Hub', uniqueString(resourceGroup().id))]",
     "storageAccountName": "[concat('xamarindemo', uniqueString(resourceGroup().id))]"
   },
-  "resources": [
-    {
-      "name": "[variables('emotionServiceName')]",
-      "type": "Microsoft.CognitiveServices/accounts",
-      "sku": {
-        "name": "S0"
-      },
-      "kind": "Emotion",
-      "apiVersion": "2016-02-01-preview",
-      "location": "westus",
-      "properties": {
-        "endpoint": "https://api.projectoxford.ai/emotion/v1.0"
-      }
-    },
     {
       "type": "Microsoft.Sql/servers",
       "apiVersion": "2014-04-01-preview",

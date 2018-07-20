@@ -12,6 +12,8 @@
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Media.Imaging;
+    using Microsoft.Azure.CognitiveServices.Vision.Face;
+    using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 
     public sealed partial class Rating : Page
     {
@@ -39,8 +41,18 @@
             photoStream = await this.mediaCaptureHelper.RotatePhoto(photoStream);
 
             await this.SetCapturedImage(photoStream);
+                  private const string subscriptionKey = "51522335952d4d97bc59b7f20fce1ae2";
+                  
+        private const string baseUri =
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
 
-            var emotionService = new EmotionService();
+        private readonly IFaceClient emotionService = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+
+        IList<DetectedFace> faceList;   // The list of detected faces.
+        String[] faceDescriptions;      // The list of descriptions for the detected faces.
+        double resizeFactor;            // The resize factor for the displayed image.
 
             var detectedEmotions = await emotionService.RecognizeAsync(photoStream.AsStream());
 

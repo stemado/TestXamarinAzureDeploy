@@ -101,8 +101,8 @@
 				"name": "S0"
 			},
 			"kind": "Face",
-			"apiVersion": "1.0",
-			"location": "westus",
+			"apiVersion": "2017-04-18",
+			"location": "[resourceGroup().location]",
 			"properties": {
 				"endpoint": "Endpoint: https://westcentralus.api.cognitive.microsoft.com/face/v1.0"
 			}

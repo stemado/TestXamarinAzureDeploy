@@ -100,10 +100,10 @@
         "name": "S0"
       },
       "kind": "Emotion",
-      "apiVersion": "2016-02-01-preview",
+      "apiVersion": "1.0",
       "location": "westus",
       "properties": {
-        "endpoint": "https://api.projectoxford.ai/emotion/v1.0"
+        "endpoint": "Endpoint: https://westcentralus.api.cognitive.microsoft.com/face/v1.0"
       }
     },
     {
